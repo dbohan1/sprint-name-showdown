@@ -3,10 +3,16 @@
     "version": "1.0.0",
     "main": "server.js",
     "scripts": {
-        "start": "node server.js"
+        "start": "node server.js",
+        "dev": "concurrently \"nodemon server.js\" \"node browsersync.js\""
     },
     "dependencies": {
         "express": "^4.21.2",
         "socket.io": "^4.8.1"
+    },
+    "devDependencies": {
+        "browser-sync": "^3.0.4",
+        "concurrently": "^9.1.2",
+        "nodemon": "^3.1.9"
     }
 }

@@ -2,32 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tournament Bracket</title>
   <style>
-    body { font-family: sans-serif; text-align: center; }
-    .bracket { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
     .round {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      min-width: 150px;
+      display: inline-block;
+      margin: 20px;
+      vertical-align: top;
     }
     .team {
-      border: 1px solid #333;
+      margin: 10px;
       padding: 10px;
-      border-radius: 8px;
-      background: #f0f0f0;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+    .vote-buttons {
+      margin-top: 10px;
+    }
+    .vote-buttons button {
+      margin: 5px;
+    }
+    .matchup {
+      margin: 20px 0;
     }
   </style>
 </head>
 <body>
   <h1>Tournament Bracket</h1>
+
+  <!-- Form to add teams -->
   <form id="teamForm">
     <input type="text" id="teamInput" placeholder="Enter team name" required>
     <button type="submit">Add Team</button>
   </form>
 
-  <div class="bracket" id="bracket"></div>
+  <div id="bracket">
+    <!-- Bracket will be dynamically updated here -->
+    <div class="round">
+      <div class="team">
+        <div class="matchup" id="matchup-0">
+          <span class="team-name">Team 1 vs Team 2</span>
+          <div class="vote-buttons">
+            <button id="vote-0-team1">Vote for Team 1</button>
+            <button id="vote-0-team2">Vote for Team 2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
