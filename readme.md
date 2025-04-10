@@ -1,126 +1,52 @@
-# 🏆 Real-Time Tournament Bracket Voting App
+# Tournament Bracket Voting App
 
-This project is a **Node.js-based real-time voting application** that lets users enter team names, automatically organizes them into matchups, and allows others to **vote on each matchup**. When one team receives **>50% of the votes**, it is automatically advanced to the next round. The bracket is displayed and updated in real time using **Socket.IO**, and hot reloading is supported on both the server and client sides.
+This is a real-time tournament bracket application built with Node.js, Express, and Socket.IO. Users can enter team names, which are paired into matchups. Users can vote on each matchup, and once a team receives more than 50% of the votes, it advances to the next round. The bracket is automatically updated and synchronized across all connected clients.
 
----
+## Features
 
-## ⚙️ Tech Stack
+- Add teams to participate in the tournament
+- Automatically generate matchups
+- Real-time voting for each matchup
+- Automatically advance the team that gets more than 50% of the votes
+- Real-time updates across all clients using Socket.IO
+- Hot reloading for both server and client during development
 
-| Layer         | Technology        |
-|---------------|-------------------|
-| Backend       | Node.js, Express  |
-| Real-time     | Socket.IO         |
-| Frontend      | Vanilla JS + HTML |
-| Dev Tools     | Nodemon, LiveReload |
+## Technologies Used
 
----
+- Node.js
+- Express
+- Socket.IO
+- Vanilla JavaScript (client-side)
+- Nodemon (server hot reload)
+- Livereload (client hot reload)
 
-## 📦 Installation
+## Installation
+
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-repo/bracket-voting-app.git
+git clone https://github.com/your-username/bracket-voting-app.git
 cd bracket-voting-app
 npm install
 ```
 
-🚀 Running the App
-Start in development mode (with hot reload):
+## Running the app
 
-bash
-Copy
-Edit
+```bash
 npm run dev
-This will:
+```
+This uses nodemon for the server and livereload for the frontend.
 
-Run the Express server via nodemon
+## Project Structure
 
-Serve the client with live-reload support (auto-refresh on file changes)
-
-Automatically reflect both server-side and client-side updates
-
-🧠 Features
-✅ Real-Time Bracket Syncing
-All clients connected via Socket.IO receive live updates on the bracket state.
-
-When a new team is added or a vote is cast, all clients are notified immediately.
-
-✅ Team Registration
-Teams can be added via a simple input form.
-
-Once two or more teams are registered, matchups are generated and displayed.
-
-✅ Matchup Voting Logic
-Matchups are pairs of teams (e.g., Team A vs Team B).
-
-Users vote on their preferred team using UI buttons.
-
-When a team receives >50% of votes, it's automatically promoted to the next round.
-
-✅ Bracket Rendering Rules
-Only valid matchups of exactly 2 defined teams are shown.
-
-No UI is shown for incomplete or invalid matchups.
-
-Once a team is promoted, a new round is generated.
-
-✅ Hot Reloading
-Server side: Uses nodemon for automatic server restarts.
-
-Client side: Uses livereload + middleware for automatic page reloads on changes to index.html or script.js.
-
-📁 Project Structure
-csharp
-Copy
-Edit
+```plaintext
 .
-├── public/
-│   ├── index.html       # Static frontend
-│   └── script.js        # Client-side Socket.IO logic & DOM rendering
-├── .gitignore           # Ignores node_modules, etc.
-├── server.js            # Express + Socket.IO server
-├── bracket.js           # Bracket logic & vote management
-├── package.json
-└── README.md
-🔄 Vote Handling Algorithm
-Each matchup is stored as a pair of team names: [team1, team2].
-
-Votes are counted using an internal Map structure.
-
-When a vote is cast:
-
-The current vote count is updated
-
-If one team surpasses 50% of total votes, it advances
-
-Matchups are recalculated with the winners and re-broadcasted
-
-js
-Copy
-Edit
-// Pseudocode
-onVote(matchup, selectedTeam) {
-  voteCounts[matchup][selectedTeam]++;
-  if (voteCounts[team] > totalVotes / 2) {
-    advanceTeam(team);
-  }
-}
-🧪 Development & Debugging
-Run with npm run dev to automatically reload on code changes.
-
-Use browser DevTools to monitor socket messages and DOM updates.
-
-Debug server-side logic in bracket.js and server.js.
-
-🚧 Future Enhancements
-Authentication / user vote limits
-
-Persistent team storage (MongoDB / SQLite)
-
-Admin panel for managing tournament phases
-
-Animated transitions between rounds
-
-Match history or vote analytics
-
-🛡 License
-MIT
+├── public/                 # Static frontend files
+│   ├── index.html          # HTML markup for the client
+│   └── script.js           # Client-side JavaScript (Socket.IO + DOM updates)
+├── server.js               # Express server with Socket.IO integration
+├── bracket.js              # Bracket and voting logic
+├── package.json            # Project metadata and dependencies
+├── .gitignore              # Files and folders to ignore in git (e.g. node_modules)
+└── README.md               # Project documentation
+```
