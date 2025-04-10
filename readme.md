@@ -25,7 +25,7 @@ This is a real-time tournament bracket application built with Node.js, Express, 
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/your-username/bracket-voting-app.git](https://github.com/dbohan1/sprint-name-showdown)
+git clone https://github.com/dbohan1/sprint-name-showdown
 cd bracket-voting-app
 npm install
 ```
