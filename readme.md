@@ -1,19 +1,28 @@
-🏆 Real-Time Tournament Bracket Voting App
-This project is a Node.js-based real-time voting application that lets users enter team names, automatically organizes them into matchups, and allows others to vote on each matchup. When one team receives >50% of the votes, it is automatically advanced to the next round. The bracket is displayed and updated in real time using Socket.IO, and hot reloading is supported on both the server and client sides.
+# 🏆 Real-Time Tournament Bracket Voting App
 
-⚙️ Tech Stack
-Layer	Technology
-Backend	Node.js, Express
-Real-time	Socket.IO
-Frontend	Vanilla JS + HTML
-Dev Tools	Nodemon, LiveReload
-📦 Installation
-bash
-Copy
-Edit
+This project is a **Node.js-based real-time voting application** that lets users enter team names, automatically organizes them into matchups, and allows others to **vote on each matchup**. When one team receives **>50% of the votes**, it is automatically advanced to the next round. The bracket is displayed and updated in real time using **Socket.IO**, and hot reloading is supported on both the server and client sides.
+
+---
+
+## ⚙️ Tech Stack
+
+| Layer         | Technology        |
+|---------------|-------------------|
+| Backend       | Node.js, Express  |
+| Real-time     | Socket.IO         |
+| Frontend      | Vanilla JS + HTML |
+| Dev Tools     | Nodemon, LiveReload |
+
+---
+
+## 📦 Installation
+
+```bash
 git clone https://github.com/your-repo/bracket-voting-app.git
 cd bracket-voting-app
 npm install
+```
+
 🚀 Running the App
 Start in development mode (with hot reload):
 
