@@ -3,56 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tournament Bracket</title>
+  <title>Team List</title>
   <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      width: 500px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #0046ad; /* ESPN's blue */
+      margin-bottom: 20px;
       text-align: center;
     }
-    .round {
-      display: inline-block;
-      margin: 20px;
-      vertical-align: top;
+
+    form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-    .team {
-      margin: 10px;
-      padding: 10px;
+
+    input[type="text"] {
+      padding: 12px;
+      width: 70%;
       border: 1px solid #ccc;
-      width: 200px;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      margin-right: 10px;
+      color: #333;
+      transition: border-color 0.3s ease;
     }
-    .vote-buttons {
-      margin-top: 10px;
+
+    input[type="text"]:focus {
+      border-color: #0046ad; /* Highlight border with ESPN blue */
+      outline: none;
     }
-    .vote-buttons button {
-      margin: 5px;
+
+    button {
+      padding: 12px 20px;
+      background-color: #0046ad; /* ESPN's blue */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .matchup {
-      margin: 20px 0;
+
+    button:hover {
+      background-color: #00367c; /* Darker blue for hover effect */
     }
+
+    #team-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    #team-list li {
+      background-color: #fafafa;
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #team-list li span {
+      font-weight: bold;
+    }
+
+    /* Divider between team names */
+    #team-list li + li {
+      border-top: 1px solid #e0e0e0;
+    }
+
   </style>
 </head>
 <body>
-  <h1>Tournament Bracket</h1>
-
-  <!-- Form to add teams -->
-  <form id="teamForm">
-    <input type="text" id="teamInput" placeholder="Enter team name" required>
-    <button type="submit">Add Team</button>
-  </form>
-
-  <div id="bracket">
-    <!-- Bracket will be dynamically updated here -->
-    <div class="round">
-      <div class="team">
-        <div class="matchup" id="matchup-0">
-          <span class="team-name">Team 1 vs Team 2</span>
-          <div class="vote-buttons">
-            <button id="vote-0-team1">Vote for Team 1</button>
-            <button id="vote-0-team2">Vote for Team 2</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container">
+    <h1>Team List</h1>
+    <form id="team-form">
+      <input type="text" id="team-input" placeholder="Enter team name" required />
+      <button type="submit">Add Team</button>
+    </form>
+    <ul id="team-list"></ul>
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
