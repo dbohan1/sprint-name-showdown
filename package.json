@@ -7,6 +7,7 @@
         "dev": "concurrently \"nodemon server.js\" \"node browsersync.js\""
     },
     "dependencies": {
+        "canvas-confetti": "^1.9.3",
         "connect-livereload": "^0.6.1",
         "express": "^4.21.2",
         "livereload": "^0.9.3",
