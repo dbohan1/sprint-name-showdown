@@ -17,5 +17,8 @@
         "browser-sync": "^3.0.4",
         "concurrently": "^9.1.2",
         "nodemon": "^3.1.9"
+    },
+    "engines": {
+     "node": "22.x"
     }
 }
